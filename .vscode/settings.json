@@ -1,0 +1,19 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "xprotocol",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 33060,
+            "driver": "MySQL",
+            "name": "Odd Jobs DB",
+            "database": "service_booking_db",
+            "username": "root",
+            "password": "AnishDB24",
+            "connectionTimeout": 30
+        }
+    ]
+}
