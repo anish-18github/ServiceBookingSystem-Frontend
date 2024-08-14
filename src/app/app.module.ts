@@ -18,6 +18,7 @@ import { SignupCompanyComponent } from './basic/components/signup-company/signup
 
 registerLocaleData(en);
 
+
 @NgModule({
   declarations: [
     AppComponent,
