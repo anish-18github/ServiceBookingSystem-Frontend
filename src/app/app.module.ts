@@ -15,8 +15,12 @@ import { provideHttpClient, withFetch } from '@angular/common/http';
 import { NgZorroModule } from './ng-zorro.module';
 import { SignupClientComponent } from './basic/components/signup-client/signup-client.component';
 import { SignupCompanyComponent } from './basic/components/signup-company/signup-company.component';
+import { NZ_ICONS } from 'ng-zorro-antd/icon';
+import { UserOutline, LockOutline } from '@ant-design/icons-angular/icons';
 
 registerLocaleData(en);
+
+const icons = [UserOutline, LockOutline];
 
 
 @NgModule({
@@ -37,6 +41,7 @@ registerLocaleData(en);
   providers: [
     provideClientHydration(),
     { provide: NZ_I18N, useValue: en_US },
+    { provide: NZ_ICONS, useValue: icons },
     provideAnimationsAsync(),
     provideHttpClient(withFetch())
   ],
