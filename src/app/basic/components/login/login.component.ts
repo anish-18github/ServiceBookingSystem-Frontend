@@ -33,22 +33,16 @@ export class LoginComponent {
 
   submitForm() {
     this.authService.login(this.validateForm.get(['userName'])!.value, this.validateForm.get(['password'])!.value)
-      .pipe(
-        catchError(error => {
-          this.notification.error(
-            'ERROR',
-            'Bad Credentials',
-            { nzDuration: 5000 }
-          );
-          return of(null); // Return an observable for graceful handling
-        })
-      )
       .subscribe(res => {
-        if (res) {
-          console.log(res);
-          // Navigate or perform actions after successful login
-        }
-      });
+        console.log(res);
+      }, error => {
+        this.notification
+          .error(
+            'ERROR',
+            `Bad Credentials`,
+            { nzDuration: 5000 }
+          )
+      })
   }
 
 }
