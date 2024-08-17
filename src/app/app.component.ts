@@ -13,18 +13,18 @@ export class AppComponent {
   isClientLoggedIn: boolean = UserStorageService.isClientLoggedIn();
   isCompanyLoggedIn: boolean = UserStorageService.isCompanyLoggedIn();
 
-  constructor(private router: Router){}
+  constructor(private router: Router) { }
 
-    ngOnInit(){
-      this.router.events.subscribe(event => {
-        this.isClientLoggedIn = UserStorageService.isClientLoggedIn();
-        this.isCompanyLoggedIn = UserStorageService.isCompanyLoggedIn();
+  ngOnInit() {
+    this.router.events.subscribe(event => {
+      this.isClientLoggedIn = UserStorageService.isClientLoggedIn();
+      this.isCompanyLoggedIn = UserStorageService.isCompanyLoggedIn();
 
-      })
-    }
+    })
+  }
 
-    logout(){
-      UserStorageService.signOut();
-      this.router.navigateByUrl('login');
-    }
+  logout() {
+    UserStorageService.signOut();
+    this.router.navigateByUrl('login');
+  }
 }
