@@ -11,54 +11,70 @@ export class UserStorageService {
   constructor() { }
 
   public saveToken(token: string): void {
-    window.localStorage.removeItem(TOKEN);
-    window.localStorage.setItem(TOKEN, token);
+    if (typeof window !== 'undefined' && window.localStorage) {
+      window.localStorage.removeItem(TOKEN);
+      window.localStorage.setItem(TOKEN, token);
+    }
   }
 
-  static getToken(): string {
-    return localStorage.getItem(TOKEN);
+  static getToken(): string | null {
+    if (typeof window !== 'undefined' && window.localStorage) {
+      return localStorage.getItem(TOKEN);
+    }
+    return null;
   }
 
-  public saveUser(user): void {
-    window.localStorage.removeItem(USER);
-    window.localStorage.setItem(USER, JSON.stringify(user));
+  public saveUser(user: any): void {
+    if (typeof window !== 'undefined' && window.localStorage) {
+      window.localStorage.removeItem(USER);
+      window.localStorage.setItem(USER, JSON.stringify(user));
+    }
   }
 
   static getUser(): any {
-    return JSON.parse(localStorage.getItem(USER));
+    if (typeof window !== 'undefined' && window.localStorage) {
+      const user = localStorage.getItem(USER);
+      return user ? JSON.parse(user) : null;
+    }
+    return null;
   }
 
   static getUserId(): string {
     const user = this.getUser();
-    if (user == null) { return ''; }
+    if (user == null) {
+      return '';
+    }
     return user.UserId;
   }
 
   static getUserRole(): string {
     const user = this.getUser();
-    if (user == null) { return ''; }
+    if (user == null) {
+      return '';
+    }
     return user.role;
   }
 
-  static isClientLoggedIn(): boolean{
-    if(this.getToken() === null){
+  static isClientLoggedIn(): boolean {
+    if (this.getToken() === null) {
       return false;
     }
     const role: string = this.getUserRole();
-    return role == 'CLIENT';
+    return role === 'CLIENT';
   }
 
-  static isCompanyLoggedIn(): boolean{
-    if(this.getToken() === null){
+  static isCompanyLoggedIn(): boolean {
+    if (this.getToken() === null) {
       return false;
     }
     const role: string = this.getUserRole();
-    return role == 'COMPANY';
+    return role === 'COMPANY';
   }
 
-  static signOut(): void{
-    window.localStorage.removeItem(TOKEN);
-    window.localStorage.removeItem(USER);
+  static signOut(): void {
+    if (typeof window !== 'undefined' && window.localStorage) {
+      window.localStorage.removeItem(TOKEN);
+      window.localStorage.removeItem(USER);
+    }
   }
-
 }

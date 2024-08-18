@@ -9,18 +9,21 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'Odd-Jobs-app';
-
-  isClientLoggedIn: boolean = UserStorageService.isClientLoggedIn();
-  isCompanyLoggedIn: boolean = UserStorageService.isCompanyLoggedIn();
+  isClientLoggedIn: boolean = false;
+  isCompanyLoggedIn: boolean = false;
 
   constructor(private router: Router) { }
 
   ngOnInit() {
-    this.router.events.subscribe(event => {
+    if (typeof window !== 'undefined') {
       this.isClientLoggedIn = UserStorageService.isClientLoggedIn();
       this.isCompanyLoggedIn = UserStorageService.isCompanyLoggedIn();
 
-    })
+      this.router.events.subscribe(event => {
+        this.isClientLoggedIn = UserStorageService.isClientLoggedIn();
+        this.isCompanyLoggedIn = UserStorageService.isCompanyLoggedIn();
+      });
+    }
   }
 
   logout() {
