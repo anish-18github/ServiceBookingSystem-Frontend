@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { UserStorageService } from '../../basic/services/storage/user-storage.service';
 
 const BASIC_URL = 'http://localhost:8080/';
@@ -14,6 +14,12 @@ export class CompanyService {
 
   postAd(adDTO: any): Observable<any> {
     const userId = UserStorageService.getUserId();
+
+    // if (!userId) {
+    //   console.error('User ID is undefined. Cannot post the ad.');
+    //   return throwError(() => new Error('User ID is undefined. Cannot post the ad.'));
+    // }
+
     return this.http.post(BASIC_URL + `api/company/ad/${userId}`, adDTO, {
       headers: this.createAuthorizationHeader()
     })
