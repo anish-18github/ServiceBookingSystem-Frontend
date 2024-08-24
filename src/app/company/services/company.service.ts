@@ -14,13 +14,14 @@ export class CompanyService {
 
   postAd(adDTO: any): Observable<any> {
     const userId = UserStorageService.getUserId();
-
-    // if (!userId) {
-    //   console.error('User ID is undefined. Cannot post the ad.');
-    //   return throwError(() => new Error('User ID is undefined. Cannot post the ad.'));
-    // }
-
     return this.http.post(BASIC_URL + `api/company/ad/${userId}`, adDTO, {
+      headers: this.createAuthorizationHeader()
+    })
+  }
+
+  getAllAdsByUserId(): Observable<any> {
+    const userId = UserStorageService.getUserId();
+    return this.http.get(BASIC_URL + `api/company/ads/${userId}`, {
       headers: this.createAuthorizationHeader()
     })
   }
