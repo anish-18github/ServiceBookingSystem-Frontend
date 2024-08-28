@@ -19,6 +19,7 @@ import { NZ_ICONS } from 'ng-zorro-antd/icon';
 import { UserOutline, LockOutline } from '@ant-design/icons-angular/icons';
 import { CreateAdComponent } from './company/pages/create-ad/create-ad.component';
 import { AllAdsComponent } from './company/pages/all-ads/all-ads.component';
+import { UpdateAdComponent } from './company/pages/update-ad/update-ad.component';
 
 
 registerLocaleData(en);
@@ -35,6 +36,7 @@ const icons = [UserOutline, LockOutline];
     SignupCompanyComponent,
     CreateAdComponent,
     AllAdsComponent,
+    UpdateAdComponent,
   
   ],
   imports: [
