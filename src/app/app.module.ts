@@ -20,6 +20,7 @@ import { UserOutline, LockOutline } from '@ant-design/icons-angular/icons';
 import { CreateAdComponent } from './company/pages/create-ad/create-ad.component';
 import { AllAdsComponent } from './company/pages/all-ads/all-ads.component';
 import { UpdateAdComponent } from './company/pages/update-ad/update-ad.component';
+import { AdDetailComponent } from './client/pages/ad-detail/ad-detail.component';
 
 
 registerLocaleData(en);
@@ -37,6 +38,7 @@ const icons = [UserOutline, LockOutline];
     CreateAdComponent,
     AllAdsComponent,
     UpdateAdComponent,
+    AdDetailComponent,
   
   ],
   imports: [
