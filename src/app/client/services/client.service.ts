@@ -30,6 +30,13 @@ export class ClientService {
     })
   }
 
+  bookService(bookDTO:any): Observable<any> {
+    // const userId = UserStorageService.getUserId();
+    return this.http.post(BASIC_URL + `api/client/book-service`, bookDTO, {
+      headers: this.createAuthorizationHeader()
+    })
+  }
+
   createAuthorizationHeader(): HttpHeaders {
     let authHeaders: HttpHeaders = new HttpHeaders();
     return authHeaders.set(
