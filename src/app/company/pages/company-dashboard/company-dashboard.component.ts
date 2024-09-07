@@ -9,6 +9,8 @@ import { subscribe } from 'diagnostics_channel';
 })
 export class CompanyDashboardComponent {
 
+  bookings: any;
+
   constructor(private companyService: CompanyService,){}
 
   ngOnInit(){
@@ -19,6 +21,7 @@ export class CompanyDashboardComponent {
   getAllAdBookings(){
     this.companyService.getAllAdBookings().subscribe(res => {
       console.log(res);
+      this.bookings = res;
     })
   }
 }
