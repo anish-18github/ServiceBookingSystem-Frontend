@@ -66,6 +66,12 @@ export class CompanyService {
     })
   }
 
+  changeBookingStatus(bookingId: number, status: string): Observable<any> {
+    return this.http.get(BASIC_URL + `api/company/booking/${bookingId}/${status}`, {
+      headers: this.createAuthorizationHeader()
+    })
+  }
+
   createAuthorizationHeader(): HttpHeaders {
     let authHeaders: HttpHeaders = new HttpHeaders();
     return authHeaders.set(
