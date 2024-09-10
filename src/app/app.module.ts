@@ -22,6 +22,7 @@ import { AllAdsComponent } from './company/pages/all-ads/all-ads.component';
 import { UpdateAdComponent } from './company/pages/update-ad/update-ad.component';
 import { AdDetailComponent } from './client/pages/ad-detail/ad-detail.component';
 import { MyBookingsComponent } from './client/pages/my-bookings/my-bookings.component';
+import { ReviewComponent } from './client/pages/review/review.component';
 
 
 registerLocaleData(en);
@@ -41,6 +42,7 @@ const icons = [UserOutline, LockOutline];
     UpdateAdComponent,
     AdDetailComponent,
     MyBookingsComponent,
+    ReviewComponent,
   
   ],
   imports: [

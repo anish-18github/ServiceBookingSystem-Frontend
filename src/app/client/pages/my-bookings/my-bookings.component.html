@@ -11,13 +11,13 @@
         <tr *ngFor="let booking of basicTable.data">
 
             <td style="font-weight: 600;">{{ booking.serviceName}} </td>
-            <td> {{booking.bookDate | date : "dd/MMw/yyyy"}}</td>
+            <td> {{booking.bookDate | date : "dd/MM/yyyy"}}</td>
             <td style="font-weight: 600;">{{ booking.reservationStatus }}</td>
             <span *ngIf="booking.reviewStatus == 'FALSE'">
 
                 <td>
                     <button style="margin-left: 10px; margin-top: 15px;" nzSize="small" nz-button nzType="primary"
-                        nzDanger>
+                        nzDanger routerLink="/client/review/{{booking.id}}">
                         Review
                     </button>
                 </td>
@@ -25,4 +25,4 @@
         </tr>
     </tbody>
 
-</nz-table>
+</nz-table> 
