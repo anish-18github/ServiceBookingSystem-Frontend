@@ -15,7 +15,7 @@
 
             <td style="font-weight: 600;">{{ booking.userName}}</td>
             <td style="font-weight: 600;">{{ booking.serviceName}} </td>
-            <td> {{booking.bookingDate | date : "dd/mm/yyyy"}}</td>
+            <td> {{booking.bookDate | date : "dd/MM/yyyy"}}</td>
             <td style="font-weight: 600;">{{ booking.reservationStatus }}</td>
             <td>
                 <span *ngIf="booking.reservationStatus === 'PENDING'">
