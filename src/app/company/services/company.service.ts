@@ -2,8 +2,9 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
 import { UserStorageService } from '../../basic/services/storage/user-storage.service';
+import { environment } from '../../../environments/environment';
 
-const BASIC_URL = 'http://localhost:8080/';
+const BASIC_URL = environment.apiUrl;
 
 @Injectable({
   providedIn: 'root'
